@@ -1,0 +1,365 @@
+/* ========== ПЕРЕМЕННЫЕ ========== */
+:root {
+    --bg-main: #c0c0c0;
+    --win-gray: #808080;
+    --win-dark: #404040;
+    --win-light: #dfdfdf;
+    --title-blue: #000080;
+    --link-blue: #0000cc;
+    --visited-purple: #800080;
+    --highlight: #ffff80;
+}
+
+/* ========== СБРОС ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========== БАЗОВАЯ СТРАНИЦА (фон исправлен, чтобы уходил вниз) ========== */
+body {
+    background-color: #c0c0c0;   /* было lightgray — теперь совпадает с цветом окна */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+}
+
+/* ========== ОСНОВНОЙ КОНТЕЙНЕР ========== */
+.main-window {
+    width: 800px;
+    max-width: 100%;
+    background-color: #c0c0c0;
+    border: 3px outset #ffffff;
+    box-shadow: 4px 4px 0px #404040;
+}
+
+/* ========== ЗАГОЛОВОК ОКНА ========== */
+.title-bar {
+    background: linear-gradient(90deg, #000080, #1084d0);
+    color: white;
+    padding: 4px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: default;
+}
+.title-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.title-bar-icon {
+    font-size: 16px;
+}
+.title-bar-buttons {
+    display: flex;
+    gap: 4px;
+}
+.win-btn {
+    background: #c0c0c0;
+    color: black;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    font-weight: bold;
+    border: 2px outset #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+}
+.win-btn:active {
+    border-style: inset;
+}
+
+/* ========== МЕНЮ-БАР ========== */
+.menu-bar {
+    background: #c0c0c0;
+    border-bottom: 1px solid #808080;
+    padding: 4px 6px;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: 12px;
+    display: flex;
+    gap: 18px;
+}
+.menu-item {
+    cursor: pointer;
+    padding: 2px 4px;
+}
+.menu-item:hover {
+    background: #000080;
+    color: white;
+}
+.menu-item u {
+    text-decoration: underline;
+}
+
+/* ========== ОСНОВНОЕ СОДЕРЖИМОЕ ========== */
+.window-content {
+    padding: 12px;
+    background: #ffffff;
+    border: 2px inset #808080;
+    margin: 4px;
+}
+
+/* ========== БЕГУЩАЯ СТРОКА ========== */
+.marquee-wrap {
+    background: #000080;
+    border: 2px inset #ffffff;
+    padding: 4px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+.marquee-wrap marquee {
+    color: #ffff00;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* ========== ЗАГОЛОВКИ ========== */
+h1 {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: 20px;
+    color: #000080;
+    text-align: center;
+    border-bottom: 2px solid #808080;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+h2 {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: 16px;
+    color: #000080;
+    border-bottom: 1px solid #c0c0c0;
+    padding-bottom: 4px;
+    margin: 16px 0 8px;
+}
+h3 {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: 14px;
+    color: #000080;
+    margin: 12px 0 6px;
+}
+
+/* ========== ССЫЛКИ ========== */
+a {
+    color: #0000cc;
+    text-decoration: underline;
+    font-weight: bold;
+}
+a:visited {
+    color: #800080;
+}
+a:hover {
+    color: #ff0000;
+    background: #ffff80;
+}
+
+/* ========== ТАБЛИЦЫ ========== */
+table.layout-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+table.layout-table td {
+    vertical-align: top;
+    padding: 6px;
+}
+td.sidebar-cell {
+    width: 220px;
+    background: #dfdfdf;
+    border: 2px inset #ffffff;
+    padding: 8px;
+}
+td.main-cell {
+    background: #ffffff;
+    padding: 10px;
+}
+
+/* ========== БОКОВАЯ ПАНЕЛЬ ========== */
+.sidebar-box {
+    background: #c0c0c0;
+    border: 2px outset #ffffff;
+    padding: 10px;
+    margin-bottom: 12px;
+}
+.sidebar-box h4 {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: 12px;
+    color: white;
+    background: #000080;
+    padding: 3px 6px;
+    margin: -10px -10px 8px -10px;
+}
+
+/* ========== СПИСКИ ========== */
+ul, ol {
+    margin-left: 22px;
+    margin-bottom: 10px;
+}
+li {
+    margin-bottom: 4px;
+}
+
+/* ========== ЗАГЛУШКА ИЗОБРАЖЕНИЯ ========== */
+.img-placeholder {
+    background: #c0c0c0;
+    border: 2px dashed #808080;
+    text-align: center;
+    padding: 20px;
+    margin: 10px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #404040;
+}
+
+/* ========== РАЗДЕЛИТЕЛЬ ========== */
+hr {
+    border: none;
+    border-top: 2px groove #c0c0c0;
+    margin: 16px 0;
+}
+
+/* ========== СЧЁТЧИК ========== */
+.counter {
+    text-align: center;
+    background: #000000;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 6px 16px;
+    display: inline-block;
+    border: 2px inset #808080;
+    letter-spacing: 4px;
+}
+
+/* ========== ПОДВАЛ ========== */
+.footer-bar {
+    background: #c0c0c0;
+    border-top: 2px outset #ffffff;
+    padding: 8px 12px;
+    text-align: center;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: 11px;
+    color: #404040;
+}
+.footer-bar a {
+    font-weight: normal;
+}
+
+/* ========== КНОПКА ========== */
+.retro-btn {
+    background: #c0c0c0;
+    border: 2px outset #ffffff;
+    padding: 5px 16px;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: normal;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+}
+.retro-btn:active {
+    border-style: inset;
+}
+
+/* ========== СТАТУС-БАР ========== */
+.status-bar {
+    background: #c0c0c0;
+    border-top: 2px inset #808080;
+    padding: 4px 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* =============================================
+   ДОБАВЛЕНИЕ: ВСПЛЫВАЮЩЕЕ ОКНО WIN95
+   (без затемнения, страница как рабочий стол)
+   ============================================= */
+.win95-popup {
+    position: fixed;
+    display: none;                /* скрыто по умолчанию */
+    width: 420px;
+    background: #c0c0c0;
+    border: 3px outset #ffffff;
+    box-shadow: 5px 5px 0px #404040;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    user-select: none;
+    z-index: 1000;
+}
+
+/* Заголовок всплывающего окна (за него можно таскать) */
+.win95-popup .popup-title-bar {
+    background: linear-gradient(90deg, #000080, #1084d0);
+    color: white;
+    padding: 4px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: move;
+    font-weight: bold;
+}
+
+.win95-popup .popup-title-bar .popup-title-text {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Кнопка закрытия (крестик) */
+.popup-close-btn {
+    background: #c0c0c0;
+    color: black;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    font-weight: bold;
+    border: 2px outset #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    line-height: 1;
+}
+.popup-close-btn:active {
+    border-style: inset;
+}
+
+/* Тело окна (белая область) */
+.win95-popup .popup-body {
+    padding: 12px;
+    background: #ffffff;
+    border: 2px inset #808080;
+    margin: 4px;
+    min-height: 120px;
+}
+
+/* Кнопка ОК внутри окна */
+.popup-ok-btn {
+    background: #c0c0c0;
+    border: 2px outset #ffffff;
+    padding: 4px 24px;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+.popup-ok-btn:active {
+    border-style: inset;
+}
