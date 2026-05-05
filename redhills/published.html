@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>НИИ «RedHills» — Публикации</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -38,7 +39,7 @@
                     <li><a href="#"> Сотрудники</a></li>
                     <li><a href="news.html"> Новости</a></li>
                     <li><a href="published.html"> Публикации</a></li>
-                    <li><a href="#"> Контакты</a></li>
+                    <li><a href="#" id="openPopupLink"> Контакты</a></li>
                 </ul>
             </div>
 
@@ -213,6 +214,21 @@
         </p>
     </div>
 </div>
-
+<div class="win95-popup" id="popupWindow">
+        <div class="popup-title-bar" id="popupTitleBar">
+            <div class="popup-title-text">
+                <span>📝</span>
+                <span>Контакты</span>
+            </div>
+            <div class="popup-close-btn" id="popupCloseBtn">✕</div>
+        </div>
+        <div class="popup-body">
+            <p><strong>Официальный почтовый ящик пресслужбы НИИ "Red Hills":</strong></p>
+            <br>
+            <p>ciclos52582@gmail.com</p>
+            <button class="popup-ok-btn" id="popupOkBtn">ОК</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
