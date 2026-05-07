@@ -87,6 +87,11 @@ class Win95Popup {
 
 // После загрузки DOM
 document.addEventListener('DOMContentLoaded', () => {
-  new Win95Popup('#popupWindow', '#openPopupLink');       // Контакты
-  new Win95Popup('#work_in_progress_popup', '#work_in_progress_link'); // В разработке
+  if (document.querySelector('#popupWindow')) {
+    new Win95Popup('#popupWindow', '#openPopupLink');  // Контакты
+  }
+  
+  if (document.querySelector('#work_in_progress_popup')) {
+    new Win95Popup('#work_in_progress_popup', '#work_in_progress_link'); // В разработке
+  }
 });
