@@ -1,15 +1,15 @@
 class Win95Popup {
   /**
-   * @param {string} popupSelector – CSS-селектор элемента окна (например, '#popupWindow')
-   * @param {string|null} triggerSelector – селектор кнопки/ссылки, которая открывает окно (можно передать null, если управление будет вручную)
+   * @param {string} popupSelector – CSS-селектор элемента окна
+   * @param {string|null} triggerSelector – селектор кнопки-триггера
    */
-constructor(popupSelector, triggerSelector = null) {
-    // Ищем элемент. Если его нет — тихо выходим, не ломая страницу.
+  constructor(popupSelector, triggerSelector = null) {
+    // Ищем элемент. Если отсутствует – тихо выходим, не ломая страницу.
     const element = document.querySelector(popupSelector);
     if (!element) {
-        console.warn('Win95Popup: элемент ' + popupSelector + ' не найден');
-        this.popup = null;
-        return; // <-- РАННИЙ ВЫХОД, без ошибок
+      console.warn('Win95Popup: элемент ' + popupSelector + ' не найден');
+      this.popup = null;
+      return;
     }
 
     this.popup = element;
@@ -17,34 +17,41 @@ constructor(popupSelector, triggerSelector = null) {
     this.closeBtn = this.popup.querySelector('.popup-close-btn');
     this.okBtn = this.popup.querySelector('.popup-ok-btn');
 
-    // Привязываем события (теперь элементы точно есть)
-    if (this.closeBtn) this.closeBtn.addEventListener('click', () => this.close());
-    if (this.okBtn) this.okBtn.addEventListener('click', () => this.close());
+    // Безопасно привязываем события
+    if (this.closeBtn) {
+      this.closeBtn.addEventListener('click', () => this.close());
+    }
+    if (this.okBtn) {
+      this.okBtn.addEventListener('click', () => this.close());
+    }
     this._initDrag();
 
-    // Если передан триггер – привязываем открытие
+    // Привязываем внешний триггер, если передан
     if (triggerSelector) {
-        const trigger = document.querySelector(triggerSelector);
-        if (trigger) {
-            trigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                this.open();
-            });
-        }
+      const trigger = document.querySelector(triggerSelector);
+      if (trigger) {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.open();
+        });
+      }
     }
-}
+  }
 
   open() {
+    if (!this.popup) return;
     if (this.popup.style.display === 'block') return;
     this.popup.style.display = 'block';
     this._center();
   }
 
   close() {
+    if (!this.popup) return;
     this.popup.style.display = 'none';
   }
 
   _center() {
+    if (!this.popup) return;
     const w = this.popup.offsetWidth;
     const h = this.popup.offsetHeight;
     const vw = window.innerWidth;
@@ -57,11 +64,11 @@ constructor(popupSelector, triggerSelector = null) {
     if (!this.titleBar) return;
 
     let isDragging = false,
-      startX, startY,
-      initialLeft, initialTop;
+        startX, startY,
+        initialLeft, initialTop;
 
     const onMouseMove = (e) => {
-      if (!isDragging) return;
+      if (!isDragging || !this.popup) return;
       e.preventDefault();
       const dx = e.clientX - startX;
       const dy = e.clientY - startY;
@@ -79,6 +86,7 @@ constructor(popupSelector, triggerSelector = null) {
 
     this.titleBar.addEventListener('mousedown', (e) => {
       if (e.target.closest('.popup-close-btn')) return;
+      if (!this.popup) return;
       isDragging = true;
       const rect = this.popup.getBoundingClientRect();
       initialLeft = rect.left;
@@ -93,13 +101,15 @@ constructor(popupSelector, triggerSelector = null) {
   }
 }
 
-// После загрузки DOM
+// Инициализация только после полной загрузки DOM
 document.addEventListener('DOMContentLoaded', () => {
+  // Контакты — присутствует не на всех страницах
   if (document.querySelector('#popupWindow')) {
-    new Win95Popup('#popupWindow', '#openPopupLink');  // Контакты
+    new Win95Popup('#popupWindow', '#openPopupLink');
   }
-  
+
+  // Окно «В разработке» — только на news.html
   if (document.querySelector('#work_in_progress_popup')) {
-    new Win95Popup('#work_in_progress_popup', '#work_in_progress_link'); // В разработке
+    new Win95Popup('#work_in_progress_popup', '#work_in_progress_link');
   }
 });

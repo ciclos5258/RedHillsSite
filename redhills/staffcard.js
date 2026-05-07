@@ -77,38 +77,38 @@ class Vacancy extends Employee {
   }
 }
 
+// 3. Данные сотрудников (централизованный источник)
 const staffMembers = [
-    // Администрация
-  new Employee({ firstName: 'Александр',lastName: 'Сомов',     title: 'Главный менеджер',                 lab: 'Администрация'   }),
-  new Employee({ firstName: 'Оливия',   lastName: 'Браун',     title: 'Офис-менеджер',                    lab: 'Администрация'   }),
-  new Employee({firstName: 'Дмитрий', lastName: 'Безвидосов', title: 'Технический директор',              lab: 'Администрация'   }),
+  // Администрация
+  new Employee({ firstName: 'Александр', lastName: 'Сомов',     title: 'Главный менеджер',                 lab: 'Администрация'   }),
+  new Employee({ firstName: 'Оливия',    lastName: 'Браун',     title: 'Офис-менеджер',                    lab: 'Администрация'   }),
+  new Employee({ firstName: 'Дмитрий',   lastName: 'Безвидосов', title: 'Технический директор',              lab: 'Администрация'   }),
 
   // Лаборатория №1 — Робототехника и моделирование
-  new Employee({ firstName: 'Майкл',    lastName: 'Джонсон',   title: 'Инженер-робототехник',             lab: 'Лаборатория №1' }),
-  new Employee({ firstName: 'Ханс',     lastName: 'Мюллер',    title: 'Специалист по компьютерному моделированию', lab: 'Лаборатория №1' }),
-  new Employee({ firstName: 'Юки',      lastName: 'Танака',    title: 'Младший научный сотрудник',         lab: 'Лаборатория №1' }),
+  new Employee({ firstName: 'Майкл',     lastName: 'Джонсон',   title: 'Инженер-робототехник',             lab: 'Лаборатория №1' }),
+  new Employee({ firstName: 'Ханс',      lastName: 'Мюллер',    title: 'Специалист по компьютерному моделированию', lab: 'Лаборатория №1' }),
+  new Employee({ firstName: 'Юки',       lastName: 'Танака',    title: 'Младший научный сотрудник',         lab: 'Лаборатория №1' }),
 
   // Лаборатория №2 — Машинное обучение
-  new Employee({ firstName: 'Светлана', lastName: 'Чен',       title: 'Ведущий инженер-исследователь',    lab: 'Лаборатория №2' }),
-  new Employee({ firstName: 'Эмили',    lastName: 'Дэвис',     title: 'Инженер машинного обучения',        lab: 'Лаборатория №2' }),
-  new Employee({ firstName: 'Радж',     lastName: 'Патель',    title: 'Научный сотрудник',                 lab: 'Лаборатория №2' }),
+  new Employee({ firstName: 'Светлана',  lastName: 'Чен',       title: 'Ведущий инженер-исследователь',    lab: 'Лаборатория №2' }),
+  new Employee({ firstName: 'Эмили',     lastName: 'Дэвис',     title: 'Инженер машинного обучения',        lab: 'Лаборатория №2' }),
+  new Employee({ firstName: 'Радж',      lastName: 'Патель',    title: 'Научный сотрудник',                 lab: 'Лаборатория №2' }),
 
   // Лаборатория №3 — Разработка сопроводительного ПО и калибровка систем
-  new Employee({ firstName: 'Екатерина',lastName: 'Волкова',   title: 'Программист-разработчик',          lab: 'Лаборатория №3' }),
-  new Employee({ firstName: 'Павел',    lastName: 'Романов',   title: 'Аналитик данных',                  lab: 'Лаборатория №3' }),
-  new Employee({ firstName: 'Джон',     lastName: 'Смит',      title: 'Инженер по калибровке систем',     lab: 'Лаборатория №3' }),
-  new Employee({ firstName: 'Лин',      lastName: 'Ван',       title: 'Тестировщик ПО',                   lab: 'Лаборатория №3' })
-
+  new Employee({ firstName: 'Екатерина', lastName: 'Волкова',   title: 'Программист-разработчик',          lab: 'Лаборатория №3' }),
+  new Employee({ firstName: 'Павел',     lastName: 'Романов',   title: 'Аналитик данных',                  lab: 'Лаборатория №3' }),
+  new Employee({ firstName: 'Джон',      lastName: 'Смит',      title: 'Инженер по калибровке систем',     lab: 'Лаборатория №3' }),
+  new Employee({ firstName: 'Лин',       lastName: 'Ван',       title: 'Тестировщик ПО',                   lab: 'Лаборатория №3' })
 ];
 
 // 4. Функция рендеринга всех карточек в контейнер
 function renderStaffGrid() {
   const grid = document.querySelector('.staff-grid');
-  if (!grid) return;
+  if (!grid) return;  // Контейнер не найден — ничего не делаем
 
   // Собираем HTML всех карточек через метод renderCard
   grid.innerHTML = staffMembers.map(member => member.renderCard()).join('');
 }
 
-// Запускаем после полной загрузки DOM
+// Запускаем только после полной загрузки DOM
 document.addEventListener('DOMContentLoaded', renderStaffGrid);
