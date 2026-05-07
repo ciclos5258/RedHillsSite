@@ -3,28 +3,36 @@ class Win95Popup {
    * @param {string} popupSelector – CSS-селектор элемента окна (например, '#popupWindow')
    * @param {string|null} triggerSelector – селектор кнопки/ссылки, которая открывает окно (можно передать null, если управление будет вручную)
    */
-  constructor(popupSelector, triggerSelector = null) {
-    this.popup = document.querySelector(popupSelector);
-    if (!this.popup) throw new Error(`Popup "${popupSelector}" not found`);
+constructor(popupSelector, triggerSelector = null) {
+    // Ищем элемент. Если его нет — тихо выходим, не ломая страницу.
+    const element = document.querySelector(popupSelector);
+    if (!element) {
+        console.warn('Win95Popup: элемент ' + popupSelector + ' не найден');
+        this.popup = null;
+        return; // <-- РАННИЙ ВЫХОД, без ошибок
+    }
 
+    this.popup = element;
     this.titleBar = this.popup.querySelector('.popup-title-bar');
     this.closeBtn = this.popup.querySelector('.popup-close-btn');
     this.okBtn = this.popup.querySelector('.popup-ok-btn');
 
-    // Привязываем события
-    this.closeBtn?.addEventListener('click', () => this.close());
-    this.okBtn?.addEventListener('click', () => this.close());
+    // Привязываем события (теперь элементы точно есть)
+    if (this.closeBtn) this.closeBtn.addEventListener('click', () => this.close());
+    if (this.okBtn) this.okBtn.addEventListener('click', () => this.close());
     this._initDrag();
 
     // Если передан триггер – привязываем открытие
     if (triggerSelector) {
-      const trigger = document.querySelector(triggerSelector);
-      trigger?.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.open();
-      });
+        const trigger = document.querySelector(triggerSelector);
+        if (trigger) {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.open();
+            });
+        }
     }
-  }
+}
 
   open() {
     if (this.popup.style.display === 'block') return;
