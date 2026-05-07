@@ -2,9 +2,19 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <title>НИИ «RedHills» — Новости</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <title>НИИ «RedHills» — Новости</title>
+    <script src="/main.js"></script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-20NTKWEGEY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-20NTKWEGEY');
+</script>
 </head>
 <body>
 
@@ -36,8 +46,8 @@
                 <h4> Навигация</h4>
                 <ul>
                     <li><a href="/"> Главная</a></li>
-                    <li><a href="/personal"> Сотрудники</a></li>
-                    <li><a href="/news"> Новости</a></li>
+                    <li><a href="#" id="/personal"> Сотрудники</a></li>
+                    <li><strong>Новости</strong></li>
                     <li><a href="/published"> Публикации</a></li>
                     <li><a href="#" id="openPopupLink"> Контакты</a></li>
                 </ul>
@@ -83,6 +93,21 @@
             <button class="popup-ok-btn" id="popupOkBtn">ОК</button>
         </div>
     </div>
-    <script src="/main.js"></script>
+
+    <div class="win95-popup" id="work_in_progress_popup">
+        <div class="popup-title-bar" id="popupTitleBar">
+            <div class="popup-title-text">
+                <span>📝</span>
+                <span>Извините!</span>
+            </div>
+            <div class="popup-close-btn" id="popupCloseBtn">✕</div>
+        </div>
+        <div class="popup-body">
+            <p><strong>Данная функция находится в разработке</strong></p>
+            <br>
+            <p>by rendich :)</p>
+            <button class="popup-ok-btn" id="popupOkBtn">ОК</button>
+        </div>
+    </div>
 </body>
 </html>

@@ -17,9 +17,9 @@
     box-sizing: border-box;
 }
 
-/* ========== БАЗОВАЯ СТРАНИЦА (фон исправлен, чтобы уходил вниз) ========== */
+/* ========== БАЗОВАЯ СТРАНИЦА ========== */
 body {
-    background-color: #c0c0c0;   /* было lightgray — теперь совпадает с цветом окна */
+    background-color: #c0c0c0;
     font-family: 'Times New Roman', Times, serif;
     font-size: 14px;
     color: #000000;
@@ -288,12 +288,11 @@ hr {
 }
 
 /* =============================================
-   ДОБАВЛЕНИЕ: ВСПЛЫВАЮЩЕЕ ОКНО WIN95
-   (без затемнения, страница как рабочий стол)
+   ВСПЛЫВАЮЩЕЕ ОКНО WIN95
    ============================================= */
 .win95-popup {
     position: fixed;
-    display: none;                /* скрыто по умолчанию */
+    display: none;
     width: 420px;
     background: #c0c0c0;
     border: 3px outset #ffffff;
@@ -304,7 +303,6 @@ hr {
     z-index: 1000;
 }
 
-/* Заголовок всплывающего окна (за него можно таскать) */
 .win95-popup .popup-title-bar {
     background: linear-gradient(90deg, #000080, #1084d0);
     color: white;
@@ -322,7 +320,6 @@ hr {
     gap: 6px;
 }
 
-/* Кнопка закрытия (крестик) */
 .popup-close-btn {
     background: #c0c0c0;
     color: black;
@@ -341,7 +338,6 @@ hr {
     border-style: inset;
 }
 
-/* Тело окна (белая область) */
 .win95-popup .popup-body {
     padding: 12px;
     background: #ffffff;
@@ -350,7 +346,6 @@ hr {
     min-height: 120px;
 }
 
-/* Кнопка ОК внутри окна */
 .popup-ok-btn {
     background: #c0c0c0;
     border: 2px outset #ffffff;
@@ -362,4 +357,134 @@ hr {
 }
 .popup-ok-btn:active {
     border-style: inset;
+}
+
+/* ========== КАРТОЧКИ СОТРУДНИКОВ ========== */
+.staff-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    justify-content: flex-start;
+}
+
+.staff-card {
+    background: #c0c0c0;
+    border: 3px outset #ffffff;
+    width: 185px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.05s ease;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    box-shadow: 2px 2px 0px #808080;
+}
+
+.staff-card:hover {
+    background: #d4d4d4;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    box-shadow: 1px 1px 0px #404040;
+    transform: translate(1px, 1px);
+}
+
+.staff-card:active {
+    border-style: inset;
+    box-shadow: none;
+    transform: translate(2px, 2px);
+}
+
+.staff-photo {
+    width: 90px;
+    height: 110px;
+    background: linear-gradient(135deg, #b0b0b0 0%, #909090 50%, #b0b0b0 100%);
+    border: 2px inset #ffffff;
+    margin: 0 auto 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #404040;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.staff-photo::after {
+    content: "📷";
+    font-size: 28px;
+    opacity: 0.5;
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+}
+
+.staff-photo .initials {
+    font-size: 22px;
+    font-weight: bold;
+    color: #505050;
+    z-index: 1;
+    text-shadow: 1px 1px 0px #d0d0d0;
+}
+
+.staff-name {
+    font-weight: bold;
+    font-size: 13px;
+    color: #000080;
+    margin-bottom: 4px;
+}
+
+.staff-title {
+    font-size: 10px;
+    color: #404040;
+    line-height: 1.3;
+}
+
+.staff-lab {
+    font-size: 10px;
+    color: #808080;
+    margin-top: 3px;
+    font-style: italic;
+}
+
+.staff-divider {
+    border: none;
+    border-top: 1px solid #808080;
+    margin: 6px auto;
+    width: 60%;
+}
+
+/* Карточка-заглушка (вакансия) */
+.staff-card.vacancy {
+    opacity: 0.7;
+    border-style: dashed;
+    border-color: #a0a0a0;
+}
+
+.staff-card.vacancy .staff-photo {
+    background: #d0d0d0;
+    border: 2px dashed #909090;
+}
+
+.staff-card.vacancy .staff-name {
+    color: #808080;
+}
+
+/* Адаптив для карточек */
+@media (max-width: 780px) {
+    .staff-card {
+        width: 150px;
+        padding: 8px;
+    }
+    .staff-photo {
+        width: 70px;
+        height: 90px;
+    }
+    .staff-name {
+        font-size: 11px;
+    }
+    .staff-title {
+        font-size: 9px;
+    }
 }

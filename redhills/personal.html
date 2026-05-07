@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>НИИ «Red Hills» — Сотрудники</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/staffcard.js"></script>
+    <script src="/main.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-20NTKWEGEY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-20NTKWEGEY');
+</script>
+</head>
+<body>
+    <div class="main-window">
+        <!-- ТАЙТЛ-БАР -->
+        <div class="title-bar">
+            <div class="title-bar-left">
+                <span class="title-bar-icon">🏛️</span>
+                <span>НИИ «Red Hills» — Сотрудники</span>
+            </div>
+            <div class="title-bar-buttons">
+                <span class="win-btn">─</span>
+                <span class="win-btn">□</span>
+                <span class="win-btn">✕</span>
+            </div>
+        </div>
+
+        <!-- МЕНЮ -->
+        <div class="menu-bar">
+            <span class="menu-item"><u>Ф</u>айл</span>
+            <span class="menu-item"><u>П</u>равка</span>
+            <span class="menu-item"><u>В</u>ид</span>
+            <span class="menu-item"><u>П</u>ереход</span>
+            <span class="menu-item"><u>С</u>правка</span>
+        </div>
+
+        <!-- КОНТЕНТ ОКНА -->
+        <div class="window-content">
+            <div class="marquee-wrap">
+                <marquee behavior="scroll" direction="left" scrollamount="4">
+                    🔬 Добро пожаловать на страницу сотрудников НИИ «Red Hills»! 🧬 Ведущие умы в области робототехники, машинного обучения и киберфизических систем 💻 Присоединяйтесь к нашей команде — открыта вакансия инженера-исследователя! 📡
+                </marquee>
+            </div>
+
+            <h1>👥 Сотрудники института</h1>
+            <p style="text-align: center; font-style: italic; color: #404040;">
+                Штат по состоянию на май 2026 года
+            </p>
+
+            <hr>
+
+            <table class="layout-table">
+                <tr>
+                    <!-- БОКОВАЯ ПАНЕЛЬ -->
+                    <td class="sidebar-cell">
+                        <div class="sidebar-box">
+                            <h4>📂 Навигация</h4>
+                            <ul style="list-style-type: square; margin-left: 14px;">
+                                <li><a href="/">Главная</a></li>
+                                <li><strong>Сотрудники</strong></li>
+                                <li><a href="/news">Новости</a></li>
+                                <li><a href="/published">Публикации</a></li>
+                                <li><a href="#" id="openPopupLink">Контакты</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-box">
+                            <h4>📌 Быстрые ссылки</h4>
+                            <p style="font-size: 11px;">
+                                <a href="#">Лаборатория №1</a><br>
+                                <a href="#">Лаборатория №2</a><br>
+                                <a href="#">Лаборатория №3</a>
+                            </p>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 10px;">
+                            <p style="font-size: 10px; margin-bottom: 4px;">Вы посетитель №</p>
+                            <span class="counter">0042790</span>
+                        </div>
+                    </td>
+
+                    <!-- ОСНОВНОЙ КОНТЕНТ -->
+                    <td class="main-cell">
+                        <h2>🔬 Действующий состав</h2>
+                        <p style="margin-bottom: 12px;">
+                            Наши специалисты объединяют фундаментальные исследования с прикладными разработками в области искусственного интеллекта и робототехники.
+                        </p>
+
+                        <!-- Динамический контейнер для карточек -->
+                        <div class="staff-grid">
+                            <!-- Заполняется из JavaScript -->
+                        </div>
+
+                        <hr>
+                        <p style="text-align: right; font-size: 11px; color: #808080;">
+                            🖨️ <a href="#">Версия для печати</a> | 📎 <a href="#">Скачать список (.doc)</a>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- СТАТУС-БАР -->
+        <div class="status-bar">
+            <span>📄 Страница загружена за 0.14 сек.</span>
+            <span>© НИИ «Red Hills», 1996–2026</span>
+        </div>
+
+        <!-- ПОДВАЛ -->
+        <div class="footer-bar">
+            <p>
+                <b>НИИ «Red Hills»</b> ● г. ᒲ╎リᒷᓭ⍑eꖎ↸, ул. ʖ|| ∷ᒷリ↸╎ᓵ⍑76 ●
+                📞 +7 (495) 123-45-67 ● ciclos52582@gmail.com
+            </p>
+            <p style="margin-top: 4px;">
+                <a href="#">Политика конфиденциальности</a> |
+                <a href="#">Карта сайта</a> |
+                <a href="#">Webmaster</a>
+            </p>
+            <p style="margin-top: 6px; font-size: 10px; color: #808080;">
+                🖥️ Лучше всего просматривать в Internet Explorer 5.0 или Netscape Navigator 4.7 при разрешении 800×600<br>
+                Сайт оптимизирован для Dial-Up соединений (56k)
+            </p>
+        </div>
+    </div>
+
+    <!-- ВСПЛЫВАЮЩЕЕ ОКНО КОНТАКТОВ -->
+    <div class="win95-popup" id="popupWindow">
+        <div class="popup-title-bar" id="popupTitleBar">
+            <div class="popup-title-text" style="display: flex; align-items: center; gap: 6px;">
+                <span>📝</span>
+                <span>Контакты</span>
+            </div>
+            <div class="popup-close-btn" id="popupCloseBtn">✕</div>
+        </div>
+        <div class="popup-body">
+            <p><strong>Официальный почтовый ящик пресс-службы НИИ "Red Hills":</strong></p>
+            <br>
+            <p>ciclos52582@gmail.com</p>
+            <button class="popup-ok-btn" id="popupOkBtn">ОК</button>
+        </div>
+    </div>
+</body>
+</html>
