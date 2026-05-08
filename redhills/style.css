@@ -488,3 +488,102 @@ hr {
         font-size: 9px;
     }
 }
+
+/* ========== БАЗОВЫЕ АДАПТИВНЫЕ ПРАВИЛА (весь сайт) ========== */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Перенос любых длинных слов/символов */
+body, p, td, div, a, span {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* ========== АДАПТИВ ДЛЯ ЭКРАНОВ ДО 700px ========== */
+@media (max-width: 700px) {
+    body {
+        padding: 8px;               /* меньше отступы */
+    }
+
+    .main-window {
+        width: 100%;                /* окно на всю ширину */
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .window-content {
+        padding: 6px;
+    }
+
+    /* Таблица с боковой панелью — превращаем в столбик */
+    table.layout-table,
+    table.layout-table tbody,
+    table.layout-table tr,
+    table.layout-table td {
+        display: block;
+        width: 100% !important;
+    }
+
+    td.sidebar-cell {
+        width: 100% !important;
+        margin-bottom: 12px;
+    }
+
+    td.main-cell {
+        width: 100% !important;
+        padding: 6px;
+    }
+
+    /* Уменьшаем заголовки */
+    h1 {
+        font-size: 17px;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+
+    /* Карточки сотрудников — ещё компактнее */
+    .staff-card {
+        width: 44%;
+    }
+
+    .staff-photo {
+        width: 70px;
+        height: 90px;
+    }
+
+    /* Строка с кнопкой OK в модальном окне */
+    .popup-ok-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Всплывающее окно — подгоняем под экран */
+    .win95-popup {
+        width: 90vw !important;
+        max-width: 400px;
+        left: 5vw !important;
+    }
+
+    /* Счётчик и другие элементы */
+    .counter {
+        font-size: 16px;
+        padding: 4px 12px;
+    }
+
+    .title-bar {
+        font-size: 11px;
+    }
+
+    .menu-bar {
+        font-size: 10px;
+        gap: 10px;
+    }
+
+    .footer-bar {
+        font-size: 10px;
+    }
+}
